@@ -13,7 +13,7 @@ class CourseDetailsPage extends StatefulWidget {
 }
 
 class _CourseDetailsPageState extends State<CourseDetailsPage> {
-  bool _isExpanded = false; // حالة لتحديد إذا كان المحتوى الموسع معروضًا
+  bool _isExpanded = false;
 
   @override
   Widget build(BuildContext context) {
@@ -37,18 +37,18 @@ class _CourseDetailsPageState extends State<CourseDetailsPage> {
       ),
       body: Stack(
         children: [
-          // صورة الخلفية
+
           Positioned.fill(
             child: Image.asset(
               AssetImagePaths.backgroundImage,
               fit: BoxFit.cover,
             ),
           ),
-          // محتوى الدورة
+
           Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              // عرض صورة الدورة فوق الخلفية
+
               Container(
                 decoration: BoxDecoration(
                   image: DecorationImage(
@@ -59,7 +59,7 @@ class _CourseDetailsPageState extends State<CourseDetailsPage> {
                 height: 250,
               ),
               const SizedBox(height: 20),
-              // عرض المحتوى
+
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -67,17 +67,17 @@ class _CourseDetailsPageState extends State<CourseDetailsPage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        // عرض المحتوى القصير أو الكامل حسب الحالة
+
                         Text(
-                          _isExpanded ? courseInfo.content : courseInfo.content.substring(0, 150) + '...', // العرض الكامل أو مختصر
+                          _isExpanded ? courseInfo.content : courseInfo.content.substring(0, 150) + '...',
                           style: const TextStyle(color: Colors.white, fontSize: 18),
                         ),
                         const SizedBox(height: 16),
-                        // الزر
+
                         ElevatedButton(
                           onPressed: () {
                             setState(() {
-                              _isExpanded = !_isExpanded; // تبديل الحالة بين العرض الكامل والمختصر
+                              _isExpanded = !_isExpanded;
                             });
                           },
                           style: ElevatedButton.styleFrom(
@@ -88,7 +88,7 @@ class _CourseDetailsPageState extends State<CourseDetailsPage> {
                             ),
                           ),
                           child: Text(
-                            _isExpanded ? 'Show Less' : 'Show More', // تغيير النص بناءً على الحالة
+                            _isExpanded ? 'Show Less' : 'Show More',
                             style: const TextStyle(fontSize: 16),
                           ),
                         ),
